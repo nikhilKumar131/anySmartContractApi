@@ -26,11 +26,14 @@ const GraphQLJSONObject = new GraphQLScalarType({
   },
 });
 
+// const any = Int | String ;
+
 const schema = buildSchema(`
 scalar JSONObject
+scalar JSON
 
 type Query {
-  message(function: String!): JSONObject
+  message(function: String!, parameters: JSON!): JSONObject
   tekken: Int
 }
 `);

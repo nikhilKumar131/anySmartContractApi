@@ -7,14 +7,20 @@ import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { schema } from "./schema.js";
 import { resolvers } from "./resolvers.js";
+import cors from "cors";
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: resolvers,
   graphiql: true, // Enable GraphiQL interface for testing
 }));
+
+
 
 const PORT = 4000;
 app.listen(PORT, () => {

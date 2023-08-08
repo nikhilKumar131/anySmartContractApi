@@ -34,7 +34,7 @@ scalar JSON
 
 type Query {
   message(function: String!, parameters: JSON!): JSONObject
-  tekken: Int
+  payableFunction(function: String!, parameters: JSON!, value: Int!): JSONObject
 }
 `);
 

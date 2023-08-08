@@ -7,9 +7,13 @@ const resolvers = {
       console.log("Received token name:", bal);
       return bal;
     },
-    tekken: () => {
-        return 5;
+    payableFunction: async (args) => {
+      console.log("Calling callFunction...");
+      const bal = await callFunction(args.function, "signer", args.parameters, args.value);
+      console.log("Function Successful:");
+      return bal;
     },
+
   };
   
   // module.exports = resolvers;
